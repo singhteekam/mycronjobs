@@ -10,15 +10,14 @@ app.get("/", (req, res) => {
 });
 
 
-// Running job every hour:10 mins. ex: 1:10, 2:10,3:10
-nodeCron.schedule("*/10 * * * *", async function jobYouNeedToExecute2() {
-  console.log("Running job at: " + new Date().toLocaleString());
+nodeCron.schedule("0 0 * * *", async function myfun() {
+  console.log("Running mail job at: " + new Date().toLocaleString());
 
   axios
-    .get(process.env.URL_STRING)
+    .get(process.env.AUTOMAILSEND)
     .then((response) => {
       console.log(
-        "Axios calling cron: " +
+        "Axios calling mail: " +
           response.data +
           " at: " +
           new Date().toLocaleString()
@@ -28,6 +27,26 @@ nodeCron.schedule("*/10 * * * *", async function jobYouNeedToExecute2() {
       console.log(error);
     });
 });
+
+
+// Running job every hour:10 mins. ex: 1:10, 2:10,3:10
+// nodeCron.schedule("*/10 * * * *", async function jobYouNeedToExecute2() {
+//   console.log("Running job at: " + new Date().toLocaleString());
+
+//   axios
+//     .get(process.env.URL_STRING)
+//     .then((response) => {
+//       console.log(
+//         "Axios calling cron: " +
+//           response.data +
+//           " at: " +
+//           new Date().toLocaleString()
+//       );
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// });
 
 
 const port = process.env.PORT || 5000;
