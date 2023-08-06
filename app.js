@@ -5,7 +5,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-  console.log("Running cron... at: " + new Date().toLocaleString());
+  console.log("-Running cron... at: " + new Date().toLocaleString());
   res.send("Running cron... at: " + new Date().toLocaleString());
 });
 
@@ -15,7 +15,7 @@ nodeCron.schedule("*/10 * * * *", async function jobYouNeedToExecute2() {
   console.log("Running job at: " + new Date().toLocaleString());
 
   axios
-    .get("https://mycronjobs.onrender.com/")
+    .get(process.env.URL_STRING)
     .then((response) => {
       console.log(
         "Axios calling cron: " +
