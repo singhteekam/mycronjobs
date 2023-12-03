@@ -30,7 +30,7 @@ nodeCron.schedule("0 0 * * *", async function myfun() {
 
 
 //BloggerSpace Logs backups
-nodeCron.schedule("2,4 2 * * *", async function myfun2() {
+nodeCron.schedule("56,58 23 * * *", async function myfun2() {
   console.log("Running backup job at: " + new Date().toLocaleString());
 
   axios
