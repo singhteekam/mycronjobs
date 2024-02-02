@@ -50,14 +50,13 @@ nodeCron.schedule("56,58 23 * * *", async function myfun2() {
 
 //BloggerSpace Logs backups
 nodeCron.schedule("*/14 * * * *", async function bloggerspace() {
-  console.log("Running backup job at: " + new Date().toLocaleString());
+  console.log("Running bloggerspace job at: " + new Date().toLocaleString());
 
   axios
     .get(process.env.BLOGGERSPACE)
     .then((response) => {
       console.log(
         "Axios calling BLOGGERSPACE: " +
-          response.data +
           " at: " +
           new Date().toLocaleString()
       );
