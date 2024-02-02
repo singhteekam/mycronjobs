@@ -48,23 +48,6 @@ nodeCron.schedule("56,58 23 * * *", async function myfun2() {
     });
 });
 
-//BloggerSpace Logs backups
-nodeCron.schedule("*/14 * * * *", async function bloggerspace() {
-  console.log("Running bloggerspace job at: " + new Date().toLocaleString());
-
-  axios
-    .get(process.env.BLOGGERSPACE)
-    .then((response) => {
-      console.log(
-        "Axios calling BLOGGERSPACE: " +
-          " at: " +
-          new Date().toLocaleString()
-      );
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-});
 
 // Running job every hour:10 mins. ex: 1:10, 2:10,3:10
 // nodeCron.schedule("*/10 * * * *", async function jobYouNeedToExecute2() {
