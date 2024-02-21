@@ -30,7 +30,7 @@ nodeCron.schedule("0 0 * * *", async function myfun() {
 
 
 //BloggerSpace Logs backups
-nodeCron.schedule("56,58 23 * * *", async function myfun2() {
+nodeCron.schedule("42,56 23 * * *", async function myfun2() {
   console.log("Running backup job at: " + new Date().toLocaleString());
 
   axios
@@ -49,24 +49,37 @@ nodeCron.schedule("56,58 23 * * *", async function myfun2() {
 });
 
 
-// Running job every hour:10 mins. ex: 1:10, 2:10,3:10
-// nodeCron.schedule("*/10 * * * *", async function jobYouNeedToExecute2() {
-//   console.log("Running job at: " + new Date().toLocaleString());
+// Running job every hour:10 mins. ex: 1:10, 1:28,1:42, 1:56, 2:00
+nodeCron.schedule("*/14 * * * *", async function bsfun3() {
+  console.log("Running self and bloggerspace job at: " + new Date().toLocaleString());
 
-//   axios
-//     .get(process.env.URL_STRING)
-//     .then((response) => {
-//       console.log(
-//         "Axios calling cron: " +
-//           response.data +
-//           " at: " +
-//           new Date().toLocaleString()
-//       );
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// });
+  axios
+    .get(process.env.URL_STRING)
+    .then((response) => {
+      console.log(
+        "Axios calling SELF url..: " +
+          response.data +
+          " at: " +
+          new Date().toLocaleString()
+      );
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  axios
+    .get(process.env.BLOGGERSPACE_BACK)
+    .then((response) => {
+      console.log(
+        "Axios calling bloggerspace..: " +
+          response.data +
+          " at: " +
+          new Date().toLocaleString()
+      );
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
 
 
 const port = process.env.PORT || 5000;
