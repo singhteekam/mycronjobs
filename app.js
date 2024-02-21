@@ -71,7 +71,6 @@ nodeCron.schedule("*/14 * * * *", async function bsfun3() {
     .then((response) => {
       console.log(
         "Axios calling bloggerspace..: " +
-          response.data +
           " at: " +
           new Date().toLocaleString()
       );
