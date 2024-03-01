@@ -50,7 +50,7 @@ nodeCron.schedule("42,56 23 * * *", async function myfun2() {
 
 
 // Running job every hour:10 mins. ex: 1:10, 1:28,1:42, 1:56, 2:00
-nodeCron.schedule("*/14 * * * *", async function bsfun3() {
+nodeCron.schedule("*/14 12-21,23 * * *", async function bsfun3() {
   console.log("Running self and bloggerspace job at: " + new Date().toLocaleString());
 
   axios
