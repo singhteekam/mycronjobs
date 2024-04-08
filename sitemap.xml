@@ -12,4 +12,4 @@
         <loc>https://localhost:3000/login</loc>
         <priority>0.8</priority>
     </url>
-</urlset>
+<url><loc>new1</loc></url></urlset>
