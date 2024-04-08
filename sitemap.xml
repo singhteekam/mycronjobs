@@ -17,4 +17,9 @@
     <loc>new3</loc>
     <priority>0.8</priority>
     </url>
+    
+    <url>
+    <loc>new4</loc>
+    <priority>0.8</priority>
+    </url>
     </urlset>
